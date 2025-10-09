@@ -1,73 +1,85 @@
-package Jobsheet6;
+package Jobsheet6;              // Package tempat file ini disimpan
+import java.util.Scanner;       // Import Scanner untuk input dari keyboard
 
-import java.util.Scanner;
-
-public class CM1_25 {
+public class CM1_25 {           // Nama class utama
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);   // Membuat objek Scanner
 
-        // Input data mahasiswa
+        // ================= INPUT DATA MAHASISWA =================
         System.out.println("===== INPUT DATA MAHASISWA =====");
         System.out.print("Nama : ");
-        String nama = sc.nextLine();
+        String nama = sc.nextLine();           // Variabel nama mahasiswa (String)
         System.out.print("NIM : ");
-        String nim = sc.nextLine();
+        String nim = sc.nextLine();            // Variabel NIM mahasiswa (String)
 
-        // Mata kuliah 1
+        // ================= MATA KULIAH 1 =================
         System.out.println("\n--- Mata Kuliah 1 : Algoritma dan Pemrograman ---");
         System.out.print("Nilai UTS : ");
-        double uts1 = sc.nextDouble();
+        double uts1 = sc.nextDouble();         // Nilai UTS (angka desimal)
         System.out.print("Nilai UAS : ");
-        double uas1 = sc.nextDouble();
+        double uas1 = sc.nextDouble();         // Nilai UAS (angka desimal)
         System.out.print("Nilai Tugas : ");
-        double tugas1 = sc.nextDouble();
+        double tugas1 = sc.nextDouble();       // Nilai Tugas (angka desimal)
 
-        double akhir1 = uts1 * 0.3 + uas1 * 0.4 + tugas1 * 0.3;
-        String huruf1 = konversiNilai(akhir1);
-        String status1 = (akhir1 >= 60) ? "LULUS" : "TIDAK LULUS";
+        // Hitung nilai akhir MK1 (30% UTS + 40% UAS + 30% Tugas) ( Operator )
+        double akhir1 = uts1 * 0.3 + uas1 * 0.4 + tugas1 * 0.3;  
+        String huruf1 = konversiNilai(akhir1);                     // Konversi angka → huruf mutu
+        String status1 = (akhir1 >= 60) ? "LULUS" : "TIDAK LULUS"; // Status lulus/tidak MK1
 
-        // Mata kuliah 2
+        // ================= MATA KULIAH 2 =================
         System.out.println("\n--- Mata Kuliah 2 : Struktur Data ---");
         System.out.print("Nilai UTS : ");
-        double uts2 = sc.nextDouble();
+        double uts2 = sc.nextDouble();         // Nilai UTS MK2
         System.out.print("Nilai UAS : ");
-        double uas2 = sc.nextDouble();
+        double uas2 = sc.nextDouble();         // Nilai UAS MK2
         System.out.print("Nilai Tugas : ");
-        double tugas2 = sc.nextDouble();
+        double tugas2 = sc.nextDouble();       // Nilai Tugas MK2
 
-        double akhir2 = uts2 * 0.3 + uas2 * 0.4 + tugas2 * 0.3;
-        String huruf2 = konversiNilai(akhir2);
-        String status2 = (akhir2 >= 60) ? "LULUS" : "TIDAK LULUS";
+        // Hitung nilai akhir MK2 (30% UTS + 40% UAS + 30% Tugas) ( Operator )
+        double akhir2 = uts2 * 0.3 + uas2 * 0.4 + tugas2 * 0.3;  
+        String huruf2 = konversiNilai(akhir2);                     // Konversi angka → huruf mutu
+        String status2 = (akhir2 >= 60) ? "LULUS" : "TIDAK LULUS"; // Status lulus/tidak MK2
 
-        // Status semester
-        double rata = (akhir1 + akhir2) / 2;
+        // ================= HITUNG RATA-RATA SEMESTER ( IF & Nested IF )=================
+        double rata = (akhir1 + akhir2) / 2;    // Rata-rata nilai akhir dari 2 mata kuliah
         String statusSemester;
-        if (akhir1 >= 60 && akhir2 >= 60) {
-            if (rata >= 70) {
-                statusSemester = "LULUS";
-            } else {
-                statusSemester = "TIDAK LULUS (Rata-rata < 70)";
-            }
+        if (akhir1 >= 60 && akhir2 >= 60) {    // Jika kedua mata kuliah lulus angka minimal 60
+            if (rata >= 70) statusSemester = "LULUS";  
+            else statusSemester = "TIDAK LULUS (Rata-rata < 70)";
         } else {
-            statusSemester = "TIDAK LULUS (Salah satu MK tidak lulus)";
+            statusSemester = "TIDAK LULUS (Salah satu Mata Kuliah tidak lulus)";
         }
 
-        // Output
+        // ================= OUTPUT =================
         System.out.println("\n=========== HASIL PENILAIAN AKADEMIK ===========");
         System.out.println("Nama : " + nama);
         System.out.println("NIM  : " + nim);
-        System.out.printf("%-25s %-5s %-5s %-7s %-12s %-12s %-12s\n", 
-            "Mata Kuliah", "UTS", "UAS", "Tugas", "Nilai Akhir", "Nilai Huruf", "Status");
-        System.out.printf("%-25s %-5.0f %-5.0f %-7.0f %-12.2f %-12s %-12s\n", 
-            "Algoritma Pemrograman", uts1, uas1, tugas1, akhir1, huruf1, status1);
-        System.out.printf("%-25s %-5.0f %-5.0f %-7.0f %-12.2f %-12s %-12s\n", 
-            "Struktur Data", uts2, uas2, tugas2, akhir2, huruf2, status2);
 
+        // Output MK1
+        System.out.println("\nMata Kuliah : Algoritma dan Pemrograman");
+        System.out.println("UTS         : " + uts1);
+        System.out.println("UAS         : " + uas1);
+        System.out.println("Tugas       : " + tugas1);
+        System.out.println("Nilai Akhir : " + akhir1);
+        System.out.println("Nilai Huruf : " + huruf1);
+        System.out.println("Status      : " + status1);
+
+        // Output MK2
+        System.out.println("\nMata Kuliah : Struktur Data");
+        System.out.println("UTS         : " + uts2);
+        System.out.println("UAS         : " + uas2);
+        System.out.println("Tugas       : " + tugas2);
+        System.out.println("Nilai Akhir : " + akhir2);
+        System.out.println("Nilai Huruf : " + huruf2);
+        System.out.println("Status      : " + status2);
+
+        // Output rata-rata & status semester
         System.out.printf("\nRata-rata Nilai Akhir: %.2f\n", rata);
         System.out.println("Status Semester: " + statusSemester);
     }
 
-    // Fungsi konversi nilai angka ke huruf
+    // ================= METHOD KONVERSI =================
+    // Method untuk mengubah nilai angka → huruf mutu
     static String konversiNilai(double nilai) {
         if (nilai >= 80) return "A";
         else if (nilai >= 73) return "B+";
