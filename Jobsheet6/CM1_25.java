@@ -55,7 +55,7 @@ public class CM1_25 {           // Nama class utama
         String status3 = (akhir3 >= 60) ? "LULUS" : "TIDAK LULUS"; // Status lulus/tidak MK2
 
         // ================= HITUNG RATA-RATA SEMESTER ( IF & Nested IF )=================
-        double rata = (akhir1 + akhir2) / 2;    // Rata-rata nilai akhir dari 2 mata kuliah
+        double rata = (akhir1 + akhir2 + akhir3) / 2;    // Rata-rata nilai akhir dari 2 mata kuliah
         String statusSemester;
         if (akhir1 >= 60 && akhir2 >= 60 && akhir3 >= 60) {    // Jika kedua mata kuliah lulus angka minimal 60
             if (rata >= 70) statusSemester = "LULUS";  
