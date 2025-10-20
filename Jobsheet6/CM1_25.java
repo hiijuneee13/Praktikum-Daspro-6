@@ -15,11 +15,11 @@ public class CM1_25 {           // Nama class utama
         // ================= MATA KULIAH 1 =================
         System.out.println("\n--- Mata Kuliah 1 : Algoritma dan Pemrograman ---");
         System.out.print("Nilai UTS : ");
-        double uts1 = sc.nextInt();         // Nilai UTS (angka desimal)
+        double uts1 = sc.nextInt();         // Nilai UTS MK1
         System.out.print("Nilai UAS : ");
-        double uas1 = sc.nextInt();         // Nilai UAS (angka desimal)
+        double uas1 = sc.nextInt();         // Nilai UAS MK1
         System.out.print("Nilai Tugas : ");
-        double tugas1 = sc.nextInt();       // Nilai Tugas (angka desimal)
+        double tugas1 = sc.nextInt();       // Nilai Tugas MK1
 
         // Hitung nilai akhir MK1 (30% UTS + 40% UAS + 30% Tugas) ( Operator )
         double akhir1 = uts1 * 0.3 + uas1 * 0.4 + tugas1 * 0.3;  
@@ -52,12 +52,12 @@ public class CM1_25 {           // Nama class utama
         // Hitung nilai akhir MK2 (30% UTS + 40% UAS + 30% Tugas) ( Operator )
         double akhir3 = uts3 * 0.3 + uas3 * 0.4 + tugas3 * 0.3;  
         String huruf3 = konversiNilai(akhir3);                     // Konversi angka → huruf mutu
-        String status3 = (akhir3 >= 60) ? "LULUS" : "TIDAK LULUS"; // Status lulus/tidak MK2
+        String status3 = (akhir3 >= 60) ? "LULUS" : "TIDAK LULUS"; // Status lulus/tidak MK3
 
         // ================= HITUNG RATA-RATA SEMESTER ( IF & Nested IF )=================
-        double rata = (akhir1 + akhir2 + akhir3) / 2;    // Rata-rata nilai akhir dari 2 mata kuliah
+        double rata = (akhir1 + akhir2 + akhir3) / 2;    // Rata-rata nilai akhir dari 3 mata kuliah
         String statusSemester;
-        if (akhir1 >= 60 && akhir2 >= 60 && akhir3 >= 60) {    // Jika kedua mata kuliah lulus angka minimal 60
+        if (akhir1 >= 60 && akhir2 >= 60 && akhir3 >= 60) {    // Jika ketiga mata kuliah lulus angka minimal 60
             if (rata >= 70) statusSemester = "LULUS";  
             else statusSemester = "TIDAK LULUS (Salah satu Mata Kuliah di bawah rata-rata 70)";
         } else {
